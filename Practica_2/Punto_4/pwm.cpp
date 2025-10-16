@@ -2,7 +2,7 @@
 
 const int ldrIzq = 35;   // ADC1_CH0
 const int ldrDer = 34;   // ADC1_CH3
-const int pinServo = 25; // PWM
+const int pinServo = 32; // PWM
 const int ledAlarma = 26; // LED opcional
 
 Servo servo;

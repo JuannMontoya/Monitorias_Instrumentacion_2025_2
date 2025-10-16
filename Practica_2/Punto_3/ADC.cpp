@@ -93,5 +93,5 @@ void loop() {
   Serial.print("\t Angle_est (deg): "); Serial.print(angle, 1);
   Serial.println();
 
-  delay(300);
+  delay(150);
 }
