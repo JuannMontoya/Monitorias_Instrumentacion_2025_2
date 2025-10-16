@@ -1,10 +1,10 @@
 // Detección de dirección de luz con 2 LDRs (ESP32)
 // Lectura, suavizado por media móvil y estimación angular aproximada.
 
-#define LDR_LEFT_PIN 34
-#define LDR_RIGHT_PIN 35
+#define LDR_LEFT_PIN 35
+#define LDR_RIGHT_PIN 34
 
-#define LED_LEFT_PIN 32
+#define LED_LEFT_PIN 25
 #define LED_RIGHT_PIN 26
 
 // Parámetros físicos / calibración

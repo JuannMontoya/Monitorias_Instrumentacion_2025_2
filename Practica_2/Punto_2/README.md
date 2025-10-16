@@ -1,28 +1,28 @@
-# 🧠 Proyecto: Medidor de tiempo entre pulsos con interrupciones en ESP32
+# PUNTO 2 INTERRUPCIONES: Medidor de tiempo entre pulsos con interrupciones en ESP32
 
-## 🎯 Objetivo
+## Objetivo
 Aprender a usar **interrupciones externas** en una placa ESP32 para medir el **tiempo entre eventos** (por ejemplo, pulsaciones de un botón o señales de un sensor).  
 Se visualizan los resultados en el **Monitor Serial**.
 
 ---
 
-## ⚙️ Materiales necesarios
-- 1 placa **ESP32** (cualquier modelo, aquí se adapta al ESP32-C6).  
+## Materiales necesarios
+- 1 placa **ESP32** .  
 - 1 **botón pulsador**.  
 - 1 **resistencia de 10 kΩ** (opcional si no usas `INPUT_PULLDOWN`).  
 - Cables y protoboard.  
 
 ---
 
-## 🔌 Conexiones
-- Conecta el **botón** entre **GPIO2** y **3.3V**.  
-- Si tu placa no tiene *pulldown interno*, agrega una **resistencia de 10 kΩ** entre **GPIO2** y **GND**.  
+## Conexiones
+- Conecta el **botón** entre **GPIO** y **3.3V**.  
+- Si tu placa no tiene *pulldown interno*, agrega una **resistencia de 10 kΩ** entre **GPIO** y **GND**.  
 
 El pin **GPIO2** admite interrupciones externas sin problemas en la ESP32.
 
 ---
 
-## 💻 Explicación del código
+## Explicación del código
 
 ### 1. Variables globales
 ```cpp
@@ -87,7 +87,7 @@ if (newData) {
 
 ---
 
-## 🧪 Prueba
+## 5. Prueba
 1. Abre el **Monitor Serial** a 115200 baudios.  
 2. Presiona el botón varias veces.  
 3. Verás el tiempo entre pulsos y la frecuencia estimada (Hz).  
@@ -97,25 +97,9 @@ Ejemplo de salida:
 Tiempo entre pulsos: 240123 us
 Frecuencia estimada: 4.16 Hz
 ```
-
 ---
 
-## ⚡ Qué se aprende
-- Cómo usar interrupciones externas (`attachInterrupt`) en ESP32.  
-- Cómo proteger variables compartidas entre ISR y *loop()* con `volatile` y `noInterrupts()`.  
-- Cómo medir el tiempo entre eventos con `micros()`.  
-- Cómo visualizar resultados en el **Monitor Serial**.
-
----
-
-## 🧩 Extensiones opcionales
-- Sustituye el botón por un **sensor de proximidad**, **encoder** o **sensor Hall** para medir velocidad o RPM.  
-- Agrega un **LED** que parpadee si la frecuencia supera cierto umbral.  
-- Usa el **Serial Plotter** para graficar el tiempo o frecuencia en tiempo real.
-
----
-
-## 🚀 Conceptos clave de interrupciones en ESP32
+##  Conceptos clave de interrupciones en ESP32
 - Las interrupciones permiten **responder inmediatamente** a eventos de hardware.  
 - No se deben usar funciones que requieran mucho tiempo dentro de una ISR (como `Serial.print()` o `delay()`).  
 - El atributo `IRAM_ATTR` es específico del ESP32 para asegurar una ejecución rápida.  

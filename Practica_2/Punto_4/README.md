@@ -48,6 +48,9 @@ LED (con 220Ω) → GPIO25 o pin a eleccion
 ```
 ### Esquematico completo
 
+1. Considere las rresistencias de 1kΩ como los LDR (fotoresistencias).
+2. Recuerde que puede modificar los pines a conveniencia.
+
 ![Esquematico completo](punto4esquematico.png)
 ---
 
@@ -141,9 +144,9 @@ void loop() {
 ##  Ejemplo de salida serial
 
 ```
-LDR Izq: 2100 Ω | LDR Der: 1200 Ω | → Luz desde la IZQUIERDA | Servo: 145°
-LDR Izq: 1300 Ω | LDR Der: 3200 Ω | → Luz desde la DERECHA | Servo: 35°
-LDR Izq: 1800 Ω | LDR Der: 1900 Ω | → Luz CENTRADA | Servo: 90°
+LDR Izq (RΩ): 1764 | LDR Der (RΩ): 0 | Diff: -0.18 | Servo: 0
+LDR Izq (RΩ): 1928 | LDR Der (RΩ): 220 | Diff: -0.17 | Servo: 0
+LDR Izq (RΩ): 1949 | LDR Der (RΩ): 159 | Diff: -0.18 | Servo: 0
 ```
 
 ---
