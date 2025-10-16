@@ -1,48 +1,47 @@
-volatile unsigned long lastTime = 0;
-volatile unsigned long currentTime = 0;
-volatile unsigned long interval = 0;
-volatile bool newData = false;
+// ================================
+//   CONTADOR DE PULSOS EN GPIO32
+//   CON TIEMPO ENTRE PULSOS
+// ================================
 
-const int buttonPin = 2;  
+#define BOTON_PIN 32  // Pin donde está conectado el botón
 
-void IRAM_ATTR handleInterrupt() {
-  currentTime = micros();         // Tiempo actual
-  interval = currentTime - lastTime;
-  lastTime = currentTime;
-  newData = true;                 // Señal al loop() de que hay nuevo dato
-}
+unsigned long tiempoAnterior = 0; // Guarda el tiempo de la última pulsación
+unsigned long tiempoActual = 0;
+unsigned long diferenciaTiempo = 0;
+int contadorPulsos = 0;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(buttonPin, INPUT_PULLDOWN);  // Configura pin con resistencia interna pulldown
+  pinMode(BOTON_PIN, INPUT_PULLUP); // Usamos resistencia interna pull-up
 
-  // Asocia interrupción al pin
-  attachInterrupt(digitalPinToInterrupt(buttonPin), handleInterrupt, RISING);
-
-  Serial.println("=== ESP32: Medidor de tiempo entre pulsos ===");
-  Serial.println("Presiona el botón para generar interrupciones...");
-  Serial.println();
+  Serial.println("=== Iniciando contador de pulsos ===");
+  Serial.println("Presiona el botón conectado al GPIO 32...");
 }
 
 void loop() {
-  if (newData) {
-    noInterrupts();                // Evita conflicto de lectura
-    unsigned long localInterval = interval;
-    newData = false;
-    interrupts();
+  // Leemos el estado del botón (activo en LOW por pull-up)
+  static bool estadoAnterior = HIGH;
+  bool estadoActual = digitalRead(BOTON_PIN);
 
-    Serial.print("Tiempo entre pulsos: ");
-    Serial.print(localInterval);
-    Serial.println(" us");
+  // Detectar flanco de bajada (cuando se presiona el botón)
+  if (estadoAnterior == HIGH && estadoActual == LOW) {
+    tiempoActual = millis();
+    diferenciaTiempo = tiempoActual - tiempoAnterior;
 
-    // Calcular frecuencia aproximada
-    if (localInterval > 0) {
-      float freq = 1000000.0 / localInterval;
-      Serial.print("Frecuencia estimada: ");
-      Serial.print(freq);
-      Serial.println(" Hz");
+    if (contadorPulsos > 0) {
+      Serial.print("⏱ Tiempo desde el último pulso: ");
+      Serial.print(diferenciaTiempo);
+      Serial.println(" ms");
     }
 
-    Serial.println();
+    contadorPulsos++;
+    Serial.print("🔘 Pulsos contados: ");
+    Serial.println(contadorPulsos);
+
+    tiempoAnterior = tiempoActual;
+
+    delay(500); 
   }
+
+  estadoAnterior = estadoActual;
 }
