@@ -13,7 +13,6 @@
  | ESP32 DevKit | 1 | Microcontrolador principal |
  | Pantalla OLED SSD1306 | 1 | Comunicación por I2C (0x3C) |
  | Potenciómetro | 1 | Control analógico de entrada |
- | Cables Dupont | 3 | Conexión de potenciómetro |
  | Cable USB | 1 | Programación y monitor serial |
  | PC con Arduino IDE | 1 | Entorno de programación y monitoreo |
 
@@ -21,7 +20,7 @@
 
  ## Esquema de conexión 
 
- ### 📟 Pantalla OLED SSD1306 
+ ### Pantalla OLED SSD1306 
  | OLED Pin | ESP32 Pin sugerido | 
  |-----------|-------------------| 
  | VCC | 3.3V |
@@ -29,7 +28,7 @@
  | SDA | GPIO 21 |
  | SCL | GPIO 22 | 
 
- ### 🎚️ Potenciómetro 
+ ### Potenciómetro 
  | Pin Potenciómetro | ESP32 | 
  |-------------------|--------| 
  | Terminal izquierda | 3.3V |
@@ -41,7 +40,7 @@
 
  --- 
 
- ## 🧠 Lógica del programa 
+ ## Lógica del programa 
 
  1. Inicializa la pantalla OLED y la comunicación serial. 
  2. Lee continuamente el valor del potenciómetro (0 a 4095). 
@@ -136,16 +135,15 @@
 
  --- 
 
- ## 💡 Ajustes y recomendaciones 
+ ## Ajustes y recomendaciones 
 
  - La dirección I2C de la pantalla puede ser `0x3C` o `0x3D`, según el módulo. 
- - Si no se muestra nada, ejecutar el **I2C Scanner** para confirmar la dirección. 
  - El potenciómetro puede conectarse a cualquier pin **ADC** válido, actualizando `potPin`. 
  - Se puede usar el valor del potenciómetro para ajustar la **velocidad del reloj** o el **brillo**. 
 
  --- 
 
- ## 🎯 Resultados esperados 
+ ## Resultados esperados 
 
  En el monitor serial se observa algo como: 
  ``` 
