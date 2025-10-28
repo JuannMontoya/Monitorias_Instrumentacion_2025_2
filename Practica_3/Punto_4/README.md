@@ -492,13 +492,18 @@ void loop() {
   1. Abre una terminal y suscríbete al tópico para recibir datos del ESP32 
  mosquitto_sub -h broker.hivemq.com -t esp32/sensor 
 
-  2. En otra terminal, envía un comando para cambiar el color del LED 
+  2. En otra terminal, envía un comando para cambiar el color del LED
+  ```bash
  mosquitto_pub -h broker.hivemq.com -t esp32/led -m "255,0,0" 
  (Esto encenderá el LED en rojo) 
+  ```
 
-  3. Puedes probar otros colores 
+ 3. Puedes probar otros colores 
+
+ ```bash
  mosquitto_pub -h broker.hivemq.com -t esp32/led -m "0,255,0" 
  mosquitto_pub -h broker.hivemq.com -t esp32/led -m "0,0,255" 
+ ```
 
   4. Observa en el monitor serial del Arduino IDE cómo el ESP32 
  recibe los mensajes y muestra los valores RGB aplicados. 
