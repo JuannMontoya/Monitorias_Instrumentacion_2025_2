@@ -114,10 +114,13 @@
  
  ## Resultados esperados 
  
- En la app del celular se recibirán mensajes como: 
+ En la app del celular se recibirán mensajes como:
+
+```bash
  Temp: 26 °C 
  Temp: 24 °C 
  Temp: 27 °C 
+  ```
  
  Y al enviar comandos, el LED cambiará de color según lo solicitado. 
  
@@ -130,14 +133,8 @@
  - El código demuestra comunicación bidireccional: recepción de comandos y envío de datos. 
  
  --- 
- 
- ## Actividad sugerida 
- 
- Reto adicional: Modifica el código para que al enviar el comando TEMP? el ESP32 responda solo una vez con la temperatura actual. 
- También puedes hacer que el color del LED cambie según el valor de temperatura. 
- 
- --- 
- 
+
+
 
  # PUNTO 2 WIFI: Control de LED RGB mediante Servidor Web en ESP32 
  
@@ -315,8 +312,11 @@
  - En el navegador, el usuario visualiza una interfaz moderna con selector de color. 
  - Cada vez que el color cambia, el LED RGB reproduce el tono seleccionado. 
  - En el monitor serial se muestra: 
+
+```bash
    Color -> R:255  G:0  B:128 
    Color -> R:0  G:255  B:64 
+```
  
  --- 
  
@@ -328,17 +328,8 @@
  - Se demuestra comunicación **cliente-servidor** sobre protocolo **TCP/IP** mediante WiFi. 
  
  --- 
- 
- ## Actividad sugerida 
- 
- - Agrega una función que guarde el último color seleccionado en la memoria EEPROM o SPIFFS. 
- - Crea un botón “Apagar” que envíe un color negro (#000000). 
- - Implementa una lectura de sensor (por ejemplo, temperatura) y muéstrala en la página web. 
- 
- --- 
- 
 
- usando **ESP32 y servidor web sobre WiFi**. 
+
 
   
  # PRÁCTICA 3: COMUNICACIÓN MQTT BIDIRECCIONAL CON ESP32 
@@ -508,22 +499,7 @@ void loop() {
   4. Observa en el monitor serial del Arduino IDE cómo el ESP32 
  recibe los mensajes y muestra los valores RGB aplicados. 
 
-
- ## RESULTADO ESPERADO 
-
- El estudiante debe lograr que el ESP32 publique valores periódicos en el tópico “esp32/sensor” 
- y que el LED RGB cambie de color al enviar mensajes desde el computador por Mosquitto. 
-
-
- ## PREGUNTAS DE ANÁLISIS 
-
- - ¿Qué ventajas tiene MQTT frente a un servidor web tradicional en IoT? 
- - ¿Qué sucede si el broker se desconecta momentáneamente? 
- - ¿Por qué es útil separar los tópicos por dispositivo o función? 
- - ¿Qué diferencia hay entre publicar (publish) y suscribirse (subscribe)? 
-
-
  ## 👨‍💻 Autor 
  
  Juan Esteban 
- Práctica desarrollada para el curso de **Instrumentación Electrónica / Sistemas Embebidos**, 
+ Práctica desarrollada para el curso de **Instrumentación Electrónica / Sistemas Embebidos** 

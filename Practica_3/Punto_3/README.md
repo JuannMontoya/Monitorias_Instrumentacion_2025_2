@@ -199,20 +199,7 @@ void loop() {
   ----------------------------- 
    ```
 
- ## ACTIVIDAD SUGERIDA ## 
- 📍 A partir de este código base, propón una mejora: 
-     - Registrar los datos de presión y temperatura en un archivo CSV en microSD 
-     - Enviar los valores a un servidor MQTT o ThingSpeak 
-     - Graficar los datos en tiempo real usando Python o MATLAB 
-
- ## PREGUNTAS DE ANÁLISIS ## 
- 1. ¿Por qué es necesario configurar el pin CS al usar SPI? 
- 2. ¿Cuál es la diferencia entre usar el BMP280 por SPI o I2C? 
- 3. ¿Qué efecto tiene cambiar la presión de referencia SEALEVELPRESSURE_HPA? 
- 4.  ¿Cómo se puede optimizar la frecuencia de actualización del sensor? 
- 5. ¿Qué modificaciones serían necesarias si se usa un BME280 (con humedad)? 
-
- ## CONCLUSIÓN ## 
- El estudiante logra implementar una comunicación SPI efectiva entre el 
- ESP32 y el sensor BMP280, interpretando datos ambientales y desplegándolos 
- de forma local mediante una pantalla OLED e interfaz serial. 
+ ## 👨‍💻 Autor 
+ 
+ Juan Esteban 
+ Práctica desarrollada para el curso de **Instrumentación Electrónica / Sistemas Embebidos** 
