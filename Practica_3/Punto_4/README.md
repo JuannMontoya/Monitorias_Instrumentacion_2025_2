@@ -1,4 +1,4 @@
- # PUNTO 1 BLUETOOTH: Control RGB y transmisión de datos desde ESP32 
+ # Fase A: BLUETOOTH: Control RGB y transmisión de datos desde ESP32 
  
  ## Descripción general 
  
@@ -136,7 +136,7 @@
 
 
 
- # PUNTO 2 WIFI: Control de LED RGB mediante Servidor Web en ESP32 
+ # Fase B: WIFI: Control de LED RGB mediante Servidor Web en ESP32 
  
  ## Descripción general 
  
@@ -332,7 +332,7 @@
 
 
   
- # PRÁCTICA 3: COMUNICACIÓN MQTT BIDIRECCIONAL CON ESP32 
+ # Fase C: COMUNICACIÓN MQTT BIDIRECCIONAL CON ESP32 
   
 
  🔹 OBJETIVO 
