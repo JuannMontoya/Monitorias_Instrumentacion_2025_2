@@ -52,29 +52,27 @@ ESP32 <====USB====> PC / Monitor Serial (Arduino IDE)
 //  Autor: Juan Esteban
 //  Curso: Intrumentacion electronica
 // ===============================================================
-
-int numeroSecreto;     // número aleatorio que el jugador debe adivinar
-int intento;           // valor ingresado por el usuario
-int intentos = 0;      // contador de intentos
-int rangoMin = 1;      // límite inferior del rango
-int rangoMax = 100;    // límite superior del rango
-bool juegoIniciado = false;  // indica si el juego ya comenzó
-bool adivinado = false;      // indica si el número fue adivinado
+int numeroSecreto;
+int intento;
+int intentos = 0;
+int rangoMin = 1;
+int rangoMax = 100;
+bool juegoIniciado = false;
+bool adivinado = false;
 
 void setup() {
-  Serial.begin(115200);           // inicializa la comunicación por USB
-  randomSeed(analogRead(0));      // semilla aleatoria usando ruido analógico
+  Serial.begin(115200);
+  randomSeed(analogRead(0));
   Serial.println("=== Juego de Adivinar el Número ===");
   Serial.println("Envía dos números separados por espacio para definir el rango (Ejemplo: 10 50)");
 }
 
 void loop() {
-  // --- Configuración del rango antes de iniciar ---
   if (!juegoIniciado && Serial.available() > 0) {
-    rangoMin = Serial.parseInt();     // lee el primer número (mínimo)
-    rangoMax = Serial.parseInt();     // lee el segundo número (máximo)
+    rangoMin = Serial.parseInt();
+    rangoMax = Serial.parseInt();
     if (rangoMin < rangoMax && rangoMax > 0) {
-      numeroSecreto = random(rangoMin, rangoMax + 1);  // genera el número aleatorio
+      numeroSecreto = random(rangoMin, rangoMax + 1);
       juegoIniciado = true;
       intentos = 0;
       Serial.print("Juego iniciado. Adivina el número entre ");
@@ -84,11 +82,10 @@ void loop() {
     }
   }
 
-  // --- Lógica del juego ---
   if (juegoIniciado && Serial.available() > 0) {
-    intento = Serial.parseInt();    // lee el intento del jugador
+    intento = Serial.parseInt();
     if (intento >= rangoMin && intento <= rangoMax) {
-      intentos++;                   // incrementa el contador de intentos
+      intentos++;
       if (intento == numeroSecreto) {
         Serial.print("¡Correcto! Adivinaste el número en ");
         Serial.print(intentos);
@@ -102,7 +99,6 @@ void loop() {
     }
   }
 
-  // --- Reinicio del juego ---
   if (adivinado) {
     delay(2000);
     Serial.println("Envía nuevo rango para jugar otra vez (Ejemplo: 10 100)");
@@ -110,6 +106,7 @@ void loop() {
     adivinado = false;
   }
 }
+
 ```
 
 ---
