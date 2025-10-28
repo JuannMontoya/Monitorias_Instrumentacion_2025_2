@@ -181,19 +181,23 @@ void loop() {
  ## RESULTADOS ESPERADOS ## 
  En el monitor serial se visualizará algo similar a: 
  ---------------------------------------------- 
+  ```BASH
  ==== LECTURA DEL BMP280 (SPI) ==== 
  🌡️ Temperatura: 25.3 °C 
  ⛽ Presión: 1009.7 hPa 
  ⛰️ Altitud: 23.5 m 
  ---------------------------------------------- 
+  ```
 
  Y en la pantalla OLED se mostrará: 
+  ```bash
   ----------------------------- 
   BMP280 SPI 
   Temp: 25.3 C 
   Pres: 1009.7 hPa 
   Alt:  23.5 m 
   ----------------------------- 
+   ```
 
  ## ACTIVIDAD SUGERIDA ## 
  📍 A partir de este código base, propón una mejora: 
