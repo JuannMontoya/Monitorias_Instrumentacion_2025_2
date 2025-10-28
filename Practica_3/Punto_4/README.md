@@ -341,7 +341,7 @@
  usando **ESP32 y servidor web sobre WiFi**. 
 
  ============================================================= 
- 📘 PRÁCTICA 3: COMUNICACIÓN MQTT BIDIRECCIONAL CON ESP32 
+ # PRÁCTICA 3: COMUNICACIÓN MQTT BIDIRECCIONAL CON ESP32 
  ============================================================= 
 
  🔹 OBJETIVO 
@@ -355,7 +355,7 @@
  Además, recibirá mensajes MQTT con códigos RGB para cambiar el color del LED. 
 
  ============================================================= 
- 💡 MATERIALES 
+ ## MATERIALES 
  ============================================================= 
  - ESP32 o ESP32-C6 
  - LED RGB común o tira WS2812 (según versión anterior) 
@@ -365,7 +365,7 @@
  ============================================================= 
 
  ============================================================= 
- 🔧 CÓDIGO DE EJEMPLO PARA EL ESP32 
+ ##  CÓDIGO DE EJEMPLO PARA EL ESP32 
  ============================================================= 
 
  Este ejemplo utiliza el broker público “broker.hivemq.com” 
@@ -476,41 +476,41 @@ void loop() {
 */
 
  ============================================================= 
- 🧠 EXPLICACIÓN DEL FUNCIONAMIENTO 
+ ## EXPLICACIÓN DEL FUNCIONAMIENTO 
  ============================================================= 
- 1️⃣ El ESP32 se conecta a la red WiFi definida en las variables ssid y password. 
- 2️⃣ Luego, establece conexión con el broker MQTT usando PubSubClient. 
- 3️⃣ Cada 3 segundos, publica un valor aleatorio en el tópico “esp32/sensor”. 
- 4️⃣ El ESP32 se suscribe al tópico “esp32/led”, de donde recibirá comandos. 
- 5️⃣ Cuando llega un mensaje con formato “R,G,B” (por ejemplo: 255,0,128), 
+  1.  El ESP32 se conecta a la red WiFi definida en las variables ssid y password. 
+  2.  Luego, establece conexión con el broker MQTT usando PubSubClient. 
+  3. Cada 3 segundos, publica un valor aleatorio en el tópico “esp32/sensor”. 
+  4. El ESP32 se suscribe al tópico “esp32/led”, de donde recibirá comandos. 
+  5. Cuando llega un mensaje con formato “R,G,B” (por ejemplo: 255,0,128), 
      la función callback analiza los valores y cambia el color del LED. 
 
  ============================================================= 
- 🧩 PRUEBAS CON MOSQUITTO EN EL COMPUTADOR 
+ ## PRUEBAS CON MOSQUITTO EN EL COMPUTADOR 
  ============================================================= 
 
- 🔹 1. Abre una terminal y suscríbete al tópico para recibir datos del ESP32 
+  1. Abre una terminal y suscríbete al tópico para recibir datos del ESP32 
  mosquitto_sub -h broker.hivemq.com -t esp32/sensor 
 
- 🔹 2. En otra terminal, envía un comando para cambiar el color del LED 
+  2. En otra terminal, envía un comando para cambiar el color del LED 
  mosquitto_pub -h broker.hivemq.com -t esp32/led -m "255,0,0" 
  (Esto encenderá el LED en rojo) 
 
- 🔹 3. Puedes probar otros colores 
+  3. Puedes probar otros colores 
  mosquitto_pub -h broker.hivemq.com -t esp32/led -m "0,255,0" 
  mosquitto_pub -h broker.hivemq.com -t esp32/led -m "0,0,255" 
 
- 🔹 4. Observa en el monitor serial del Arduino IDE cómo el ESP32 
+  4. Observa en el monitor serial del Arduino IDE cómo el ESP32 
  recibe los mensajes y muestra los valores RGB aplicados. 
 
  ============================================================= 
- 🧭 RESULTADO ESPERADO 
+ ## RESULTADO ESPERADO 
  ============================================================= 
  El estudiante debe lograr que el ESP32 publique valores periódicos en el tópico “esp32/sensor” 
  y que el LED RGB cambie de color al enviar mensajes desde el computador por Mosquitto. 
 
  ============================================================= 
- 🧩 PREGUNTAS DE ANÁLISIS 
+ ## PREGUNTAS DE ANÁLISIS 
  ============================================================= 
  - ¿Qué ventajas tiene MQTT frente a un servidor web tradicional en IoT? 
  - ¿Qué sucede si el broker se desconecta momentáneamente? 
